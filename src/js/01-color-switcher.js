@@ -11,6 +11,7 @@ stopBtn.addEventListener('click', onStopBtnClick);
 stopBtn.setAttribute('disabled', 'true');
 
 function onStartBtnClick() {
+  changeBodyBgColor();
   intervalId = setInterval(changeBodyBgColor, DELAY);
 
   //   if (isColorChangeActive) {
