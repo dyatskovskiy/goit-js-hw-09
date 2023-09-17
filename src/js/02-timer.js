@@ -49,7 +49,6 @@ function isPastTime() {
 }
 
 function startTimer() {
-  startBtn.setAttribute('disabled', 'true');
   const currentTime = Date.now();
   const deltaTime = startTime - currentTime;
 
