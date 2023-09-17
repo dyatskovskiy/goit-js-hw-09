@@ -50,6 +50,13 @@ function isPastTime() {
 
 function startTimer() {
   startBtn.setAttribute('disabled', 'true');
+  const currentTime = Date.now();
+  const deltaTime = startTime - currentTime;
+
+  const timeComponents = convertMs(deltaTime);
+
+  updateReverseTimerFields(timeComponents);
+
   const intervalId = setInterval(() => {
     const currentTime = Date.now();
     const deltaTime = startTime - currentTime;
