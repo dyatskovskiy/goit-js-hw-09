@@ -49,6 +49,7 @@ function isPastTime() {
 }
 
 function startTimer() {
+  startBtn.setAttribute('disabled', 'true');
   const currentTime = Date.now();
   const deltaTime = startTime - currentTime;
 
@@ -74,7 +75,6 @@ function startTimer() {
 function stopTimer(intervalId) {
   clearInterval(intervalId);
   Notify.success('Countdown is over!');
-  startBtn.removeAttribute('disabled', 'true');
 }
 
 function updateReverseTimerFields(timeComponents) {
