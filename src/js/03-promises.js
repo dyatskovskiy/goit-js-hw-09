@@ -6,26 +6,26 @@ const firstDelayInput = document.querySelector('input[name=delay]');
 const delayStepInput = document.querySelector('input[name=step]');
 const amountInput = document.querySelector('input[name=amount]');
 
-// const position = amountInput.value;
-// const delay = delayStepInput.value;
-const firstDelay = firstDelayInput.value;
-
 createBtn.addEventListener('click', e => {
   e.preventDefault();
-  const amount = amountInput.value;
-  const delay = delayStepInput.value;
 
-  setTimeout(() => {
+  const amount = parseInt(amountInput.value);
+  const delayStep = parseInt(delayStepInput.value);
+  const firstDelay = parseInt(firstDelayInput.value);
+
+  for (let position = 1; position <= amount; position++) {
+    let delay = delayStep * position;
+
     setTimeout(() => {
       createPromise(position, delay)
         .then(({ position, delay }) => {
-          console.log(`✅ Fulfilled promise ${position} in ${delay}ms`);
+          Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`);
         })
         .catch(({ position, delay }) => {
-          console.log(`❌ Rejected promise ${position} in ${delay}ms`);
+          Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`);
         });
-    }, delay);
-  }, firstDelay);
+    }, firstDelay);
+  }
 });
 
 const createPromise = (position, delay) => {
