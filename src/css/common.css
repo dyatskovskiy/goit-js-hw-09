@@ -40,14 +40,33 @@ button:enabled{
   border-radius: 3px;
   background-color: #fce2c2;
   transition: all 400ms ease;
-  }
+}
 
 .btn-wrapper button:enabled:hover {
       background-color: #ffce93;
       border-radius: 5px;
       transform: scale( 1.1);
-    }
+}
 
 
 
-    /* 2nd hw */
+/* 2nd hw */
+.timer {
+position: absolute;
+top: 40%;
+left: 50%;
+display: flex;
+gap: 1rem;
+transform: translate(-50%)
+}
+
+.field {
+  display: flex;
+  flex-direction: column-reverse;
+  text-align: center;
+}
+
+span.value {
+    font-size: 40px;
+}
+
